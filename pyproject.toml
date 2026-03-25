@@ -1,0 +1,23 @@
+[project]
+name = "soc"
+version = "0.1.0"
+description = "Simple Outfit Compatibility project"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "torchvision",
+    "open_clip_torch",
+    "jupyter",
+    "ipykernel",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "pillow",
+    "tqdm",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
