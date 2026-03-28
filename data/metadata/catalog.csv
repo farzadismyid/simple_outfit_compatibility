@@ -1,0 +1,6 @@
+item_id,image_path,category,color,style
+1,data/catalog_images/shoe_01.jpg,shoes,white,casual
+2,data/catalog_images/shoe_02.jpg,shoes,black,formal
+3,data/catalog_images/bag_01.jpg,bag,brown,casual
+4,data/catalog_images/jacket_01.jpg,jacket,blue,smart-casual
+5,data/catalog_images/trouser_01.jpg,trouser,black,formal
