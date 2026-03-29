@@ -3,6 +3,7 @@ from PIL import Image
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
+
 def load_image(image_path):
     image_path = Path(image_path)
 

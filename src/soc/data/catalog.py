@@ -16,7 +16,9 @@ def load_catalog(csv_path: str | Path) -> pd.DataFrame:
     return df
 
 
-def validate_catalog_images(df: pd.DataFrame, base_dir: str | Path | None = None) -> pd.DataFrame:
+def validate_catalog_images(
+    df: pd.DataFrame, base_dir: str | Path | None = None
+) -> pd.DataFrame:
     base_dir = Path(base_dir) if base_dir else None
 
     exists_list = []
