@@ -11,13 +11,15 @@ class CLIPEncoder:
         self,
         model_name: str = "ViT-B-32",
         pretrained: str = "laion2b_s34b_b79k",
-        device: str | None = None,
+        device: str = "cpu",
     ):
-        if device is None:
-            if torch.cuda.is_available():
-                device = "cuda"
-            else:
-                device = "cpu"
+#     device: str | None = None,
+# ):
+#     if device is None:
+#         if torch.cuda.is_available():
+#             device = "cuda"
+#         else:
+#             device = "cpu"
 
         self.device = device
         self.model, _, self.preprocess = open_clip.create_model_and_transforms(
