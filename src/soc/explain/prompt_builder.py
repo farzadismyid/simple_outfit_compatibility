@@ -19,12 +19,18 @@ def build_explanation_prompt(payload: dict[str, Any]) -> str:
     lines = []
     lines.append("You are helping explain fashion recommendations to a user.")
     lines.append("Use only the information provided below.")
-    lines.append("Do not invent fabrics, occasions, seasons, brands, or fine-grained visual details unless they are explicitly given.")
+    lines.append(
+        "Do not invent fabrics, occasions, seasons, brands, or fine-grained "
+        "visual details unless they are explicitly given."
+    )
     lines.append("Keep the explanation short, clear, and user-friendly.")
     lines.append("")
     lines.append("Task:")
     lines.append("Explain why these recommended items may suit the user's outfit.")
-    lines.append("Mention general alignment in category, color, style, and overall visual coherence when supported by the data.")
+    lines.append(
+        "Mention general alignment in category, color, style, and overall "
+        "visual coherence when supported by the data."
+    )
     lines.append("Do not mention technical terms like embeddings, cosine similarity, or CLIP.")
     lines.append("")
     lines.append("Input summary:")
