@@ -1,4 +1,4 @@
-# SOC — Simple Outfit Compatibility
+# SOC - Simple Outfit Compatibility
 
 A modular, step-by-step project for building an outfit compatibility and recommendation system, starting from a simple baseline and evolving toward explainable and learning-based models.
 
@@ -6,7 +6,7 @@ A modular, step-by-step project for building an outfit compatibility and recomme
 
 ## 🎯 Project Goal
 
-Given an outfit (image-based input), recommend the **top 5 compatible items** from a local catalog.
+Given an outfit (image-based input), recommend the **top 5 compatible items** from a local catalog. Future updates will include explainable recommendations and then upgrading to evidence base recom and explanation.
 
 ### Current Version
 
@@ -14,6 +14,7 @@ Given an outfit (image-based input), recommend the **top 5 compatible items** fr
 - Retrieves visually compatible items
 - Supports category-based filtering (e.g., shoes, bag, jacket)
 - Introduces a structured pipeline for explainable recommendations (LLM-ready)
+- Visualization and comparison supporting LLM explanations.
 
 ---
 
