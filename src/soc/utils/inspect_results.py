@@ -6,10 +6,19 @@ import pandas as pd
 from PIL import Image
 
 
+from soc.config import PROJECT_ROOT
+
+
 def _open_image(image_path: str | Path):
     image_path = Path(image_path)
+
+    # If relative path, resolve from project root
+    if not image_path.is_absolute():
+        image_path = PROJECT_ROOT / image_path
+
     if not image_path.exists():
         raise FileNotFoundError(f"Image not found: {image_path}")
+
     return Image.open(image_path).convert("RGB")
 
 
