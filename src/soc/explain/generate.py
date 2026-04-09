@@ -11,6 +11,7 @@ def generate_explanation(
     recommendations_df,
     llm: BaseLLM,
     top_k: int = 5,
+    query_caption: str | None = None,
 ) -> dict[str, Any]:
     """
     End-to-end explanation pipeline:
@@ -25,6 +26,7 @@ def generate_explanation(
         target_category=target_category,
         recommendations_df=recommendations_df,
         top_k=top_k,
+        query_caption=query_caption,
     )
 
     prompt = build_explanation_prompt(payload)
