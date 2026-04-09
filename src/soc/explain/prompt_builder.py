@@ -5,9 +5,6 @@ def build_explanation_prompt(payload: dict[str, Any]) -> str:
     """
     Build a grounded prompt for an LLM using the structured
     recommendation payload.
-
-    The prompt is intentionally strict so the LLM stays close
-    to the provided evidence and avoids making things up.
     """
 
     query = payload.get("query", {})
@@ -15,30 +12,29 @@ def build_explanation_prompt(payload: dict[str, Any]) -> str:
 
     query_image_path = query.get("image_path", "unknown")
     target_category = query.get("target_category", "unknown")
+    query_caption = query.get("caption")
 
     lines = []
     lines.append("You are helping explain fashion recommendations to a user.")
     lines.append("Use only the information provided below.")
-    lines.append(
-        "Do not invent fabrics, occasions, seasons, brands, or fine-grained "
-        "visual details unless they are explicitly given."
-    )
+    lines.append("Do not invent fabrics, occasions, seasons, brands, or fine-grained visual details unless they are explicitly given.")
     lines.append("Keep the explanation short, clear, and user-friendly.")
     lines.append("")
     lines.append("Task:")
     lines.append("Explain why these recommended items may suit the user's outfit.")
-    lines.append(
-        "Mention general alignment in category, color, style, and overall "
-        "visual coherence when supported by the data."
-    )
-    lines.append("Do not mention technical terms like embeddings, cosine similarity, or CLIP.")
+    lines.append("Mention general alignment in category, color, style, and overall visual coherence when supported by the data.")
+    lines.append("Do not mention technical terms like embeddings, cosine similarity, CLIP, or model internals.")
     lines.append("")
     lines.append("Input summary:")
     lines.append(f"- Query image path: {query_image_path}")
     lines.append(f"- Target category: {target_category}")
-    lines.append("")
 
+    if query_caption:
+        lines.append(f"- Query image caption: {query_caption}")
+
+    lines.append("")
     lines.append("Recommended items:")
+
     if not recommendations:
         lines.append("- No recommendations were provided.")
     else:
@@ -68,6 +64,7 @@ def build_explanation_prompt(payload: dict[str, Any]) -> str:
     lines.append("Output requirements:")
     lines.append("- Write one short paragraph, around 3 to 5 sentences.")
     lines.append("- Sound natural and helpful.")
+    lines.append("- Use the query caption only as supporting evidence, not as a source of certainty.")
     lines.append("- Focus on why the suggestions are reasonable as complementary items.")
     lines.append("- If the evidence is limited, say so in a subtle natural way without sounding robotic.")
 
