@@ -8,6 +8,7 @@ def build_explanation_payload(
     target_category: str | None,
     recommendations_df: pd.DataFrame,
     top_k: int = 5,
+    query_caption: str | None = None,
 ) -> dict[str, Any]:
     """
     Convert recommendation results into a clean structured payload
@@ -32,6 +33,7 @@ def build_explanation_payload(
         "query": {
             "image_path": query_image_path,
             "target_category": target_category,
+            "caption": query_caption,
         },
         "recommendations": [],
     }
