@@ -350,7 +350,7 @@ Instead of jumping to complex models:
 ## 👤 Author
 
 **Ali Jamali**  
-MPhil Artificial Intelligence, University of Salford  
+Machine Learning and Artificial Intelligence Engineer, University of Salford  
 
 ---
 
