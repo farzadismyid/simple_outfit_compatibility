@@ -1,4 +1,4 @@
-# SOC - Simple Outfit Compatibility
+# SOC Simple Outfit Compatibility
 
 A modular, step-by-step project for building an outfit compatibility and recommendation system, starting from a simple baseline and evolving toward explainable and learning-based models.
 
