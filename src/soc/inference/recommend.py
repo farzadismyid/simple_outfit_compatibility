@@ -16,3 +16,13 @@ def recommend_from_image(
     catalog_df = load_catalog(CATALOG_CSV)
     catalog_embeddings = np.load(CATALOG_EMBEDDINGS)
 
+    encoder = CLIPEncoder()
+    retriever = OutfitRetriever(catalog_df, catalog_embeddings)
+
+    query_embedding = encoder.encode_image(query_image_path)
+    results = retriever.recommend(
+        query_embedding=query_embedding,
+        top_k=top_k,
+        target_category=target_category,
+    )
+    return results
