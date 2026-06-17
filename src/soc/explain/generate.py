@@ -6,3 +6,19 @@ from soc.explain.llm_base import BaseLLM
 
 
 
+def generate_explanation(
+    query_image_path: str,
+    target_category: str | None,
+    recommendations_df,
+    llm: BaseLLM,
+    top_k: int = 5,
+    query_caption: str | None = None,
+) -> dict[str, Any]:
+    """
+    End-to-end explanation pipeline:
+    1. format recommendation results
+    2. build grounded prompt
+    3. call selected LLM backend
+    4. return everything in one dictionary
+    """
+
