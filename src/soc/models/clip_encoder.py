@@ -23,17 +23,3 @@ class CLIPEncoder:
         self.model.to(self.device)
         self.model.eval()
 
-    @torch.no_grad()
-    def encode_image(self, image_path: str | Path) -> np.ndarray:
-        image = load_image(image_path)
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        features = self.model.encode_image(image_tensor)
-        features = features / features.norm(dim=-1, keepdim=True)
-        return features.squeeze(0).cpu().numpy()
-
-    @torch.no_grad()
-    def encode_text(self, text: str) -> np.ndarray:
-        tokens = self.tokenizer([text]).to(self.device)
-        features = self.model.encode_text(tokens)
-        features = features / features.norm(dim=-1, keepdim=True)
-        return features.squeeze(0).cpu().numpy()
