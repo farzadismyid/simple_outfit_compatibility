@@ -22,3 +22,19 @@ def generate_explanation(
     4. return everything in one dictionary
     """
 
+    payload = build_explanation_payload(
+        query_image_path=query_image_path,
+        target_category=target_category,
+        recommendations_df=recommendations_df,
+        top_k=top_k,
+        query_caption=query_caption,
+    )
+
+    prompt = build_explanation_prompt(payload)
+    explanation = llm.generate(prompt)
+
+    return {
+        "payload": payload,
+        "prompt": prompt,
+        "explanation": explanation,
+    }
